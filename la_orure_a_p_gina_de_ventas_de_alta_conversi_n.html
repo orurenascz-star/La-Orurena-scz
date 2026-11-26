@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Orureña | Granola Nutritiva - Energía en cada porción</title>
+  <meta name="description" content="Granola nutritiva, deliciosa y natural elaborada a base de trigo insuflado y avena en Santa Cruz de la Sierra, Bolivia. Pedidos al por mayor y menor por WhatsApp.">
+
+  <!-- SEO ESTRUCTURADO SCHEMA.ORG (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "La Orureña - Granola Nutritiva",
+    "description": "Elaboración de granola saludable a base de trigo insuflado y avena. Ventas al por mayor, menor y pedidos especiales.",
+    "telephone": "+59162444863",
+    "slogan": "Granola saludable, energía en cada porción",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Santa Cruz de la Sierra",
+      "addressCountry": "BO"
+    }
+  }
+  </script>
+
+  <style>
+    /* 1. RESET Y TOKENS DE DISEÑO (WCAG AA + FLUIDEZ) */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #5c1d18;       /* Marrón grano tostado */
+      --primary-dark: #3f120f;
+      --accent: #d97706;        /* Dorado trigo natural */
+      --accent-hover: #b45309;
+      --whatsapp: #15803d;      /* Verde WhatsApp accesible >= 4.5:1 */
+      --whatsapp-hover: #166534;
+      --bg: #fefce8;            /* Crema cálido natural */
+      --surface: #ffffff;
+      --surface-alt: #fef3c7;
+      --text: #1c1917;
+      --text-muted: #57534e;
+      --border: #e7e5e4;
+
+      --font-h1: clamp(1.9rem, 2.3vw + 1.35rem, 3.2rem);
+      --font-h2: clamp(1.45rem, 1.3vw + 1.1rem, 2.2rem);
+      --font-h3: clamp(1.12rem, 0.5vw + 1rem, 1.35rem);
+      --font-body: clamp(1rem, 0.25vw + 0.95rem, 1.125rem);
+      --space-section: clamp(2.5rem, 4.5vw + 1.25rem, 4.75rem);
+      --gutter: clamp(1rem, 2.5vw + 0.5rem, 2rem);
+
+      --shadow-sm: 0 1px 3px rgba(28, 25, 23, 0.08);
+      --shadow-md: 0 4px 12px -2px rgba(28, 25, 23, 0.12);
+      --shadow-lg: 0 14px 28px -6px rgba(28, 25, 23, 0.18);
+      --radius: 0.9rem;
+      --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-size: var(--font-body);
+      line-height: 1.6;
+      color: var(--text);
+      background-color: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: min(100% - (var(--gutter) * 2), 1140px);
+      margin-inline: auto;
+    }
+
+    section { padding-block: var(--space-section); }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    h1 { font-size: var(--font-h1); }
+    h2 { font-size: var(--font-h2); }
+    h3 { font-size: var(--font-h3); }
+
+    /* BOTONES ACCESIBLES (>= 44x44px) */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      min-height: 52px;
+      min-width: 52px;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 1.02rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: transform var(--transition), background-color var(--transition), box-shadow var(--transition);
+    }
+
+    .btn:focus-visible, input:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      border-radius: 0.65rem;
+      min-height: 48px;
+      padding: 0.7rem 1.25rem;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background-color: var(--whatsapp);
+      color: #ffffff;
+      box-shadow: 0 8px 20px -4px rgba(21, 128, 61, 0.45);
+    }
+    .btn-whatsapp:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+    }
+
+    /* HEADER STICKY */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding-block: 0.75rem;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      padding: 0.5rem;
+    }
+
+    .nav-links a:hover { color: var(--accent-hover); }
+
+    .cart-trigger {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 0.6rem;
+      padding: 0.6rem 1rem;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .cart-badge {
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ============================================================
+       PASO 1, 2 Y 3: EMBUDO SUPERIOR (TÍTULO + VIDEO + CTA WHATSAPP)
+       ============================================================ */
+    .sales-hero {
+      background: linear-gradient(180deg, #5c1d18 0%, #3f120f 65%, #fefce8 65%);
+      padding-block: clamp(2.25rem, 4vw, 3.5rem) 2rem;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      background-color: rgba(254, 243, 199, 0.16);
+      border: 1px solid rgba(253, 230, 138, 0.4);
+      color: #fde68a;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    /* PASO 1: TÍTULO PERSUASIVO */
+    .sales-hero h1 {
+      color: #ffffff;
+      max-width: 24ch;
+      margin-inline: auto;
+    }
+
+    .sales-hero .lead {
+      color: #fef3c7;
+      max-width: 58ch;
+      margin: 1rem auto 2rem;
+      font-size: clamp(1.05rem, 0.4vw + 1rem, 1.2rem);
+    }
+
+    /* PASO 2: MULTIMEDIA / VIDEO PERSUASIVO INTERACTIVO */
+    .video-stage {
+      max-width: 820px;
+      margin-inline: auto;
+      background-color: #1c1917;
+      border-radius: 1.15rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 4px solid #fde68a;
+    }
+
+    .video-screen {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: radial-gradient(circle at center, #7c2d12 0%, #29100d 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      color: #ffffff;
+    }
+
+    .video-slide-badge {
+      background-color: var(--accent);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+
+    .video-slide-title {
+      font-size: clamp(1.25rem, 2vw + 0.8rem, 2rem);
+      font-weight: 800;
+      color: #fef3c7;
+      max-width: 28ch;
+      margin-bottom: 0.5rem;
+    }
+
+    .video-slide-caption {
+      font-size: clamp(0.95rem, 0.4vw + 0.85rem, 1.1rem);
+      color: #e7e5e4;
+      max-width: 48ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .play-trigger {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background-color: #ef4444;
+      color: #ffffff;
+      border: 4px solid #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 0 0 8px rgba(239, 68, 68, 0.25);
+      transition: transform var(--transition);
+    }
+
+    .play-trigger:hover { transform: scale(1.08); }
+
+    .video-controls-bar {
+      background-color: #18181b;
+      padding: 0.65rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: #ffffff;
+    }
+
+    .video-mini-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      min-width: 44px;
+      min-height: 44px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 8px;
+      background-color: #3f3f46;
+      border-radius: 999px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 25%;
+      background-color: #ef4444;
+      transition: width 300ms linear;
+    }
+
+    .video-timer {
+      font-size: 0.82rem;
+      font-variant-numeric: tabular-nums;
+      color: #d4d4d8;
+    }
+
+    /* PASO 3: CALL TO ACTION PRINCIPAL (WHATSAPP) */
+    .cta-banner-primary {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .cta-subnote {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ============================================================
+       PASO 4: BENEFICIOS DEL PRODUCTO
+       ============================================================ */
+    .section-header-center {
+      text-align: center;
+      max-width: 62ch;
+      margin-inline: auto;
+      margin-bottom: 2.25rem;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+      gap: var(--gutter);
+    }
+
+    .benefit-card {
+      background: var(--surface);
+      padding: 1.65rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      text-align: center;
+    }
+
+    .benefit-badge-icon {
+      width: 56px;
+      height: 56px;
+      margin-inline: auto;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      background-color: var(--surface-alt);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* CATÁLOGO INTEGRADO */
+    .catalog-section {
+      background-color: var(--surface);
+      border-block: 1px solid var(--border);
+    }
+
+    .catalog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      min-height: 44px;
+      padding: 0.5rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--surface);
+      color: var(--primary);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1 1 250px;
+      max-width: 340px;
+    }
+
+    .search-input {
+      width: 100%;
+      min-height: 46px;
+      padding: 0.6rem 1rem 0.6rem 2.6rem;
+      border-radius: 0.6rem;
+      border: 1px solid #d6d3d1;
+      font-size: 1rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      inset-inline-start: 0.85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 275px), 1fr));
+      gap: var(--gutter);
+    }
+
+    .product-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .product-tag {
+      display: inline-block;
+      background-color: var(--surface-alt);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 0.4rem;
+      margin-bottom: 0.65rem;
+    }
+
+    .product-desc {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      margin-block: 0.6rem 1.2rem;
+    }
+
+    /* ============================================================
+       PASO 5: TESTIMONIOS (PRUEBA SOCIAL)
+       ============================================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: var(--gutter);
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+
+    .testimonial-top {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .avatar-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: #fde68a;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .stars {
+      color: #f59e0b;
+      letter-spacing: 2px;
+      font-size: 1.05rem;
+    }
+
+    /* ============================================================
+       PASO 6: CALL TO ACTION FINAL (CIERRE DE VENTAS WHATSAPP)
+       ============================================================ */
+    .final-cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .final-cta-section h2 {
+      color: #fde68a;
+      margin-bottom: 0.85rem;
+    }
+
+    .final-cta-section p {
+      color: #fef3c7;
+      max-width: 56ch;
+      margin: 0 auto 1.75rem;
+    }
+
+    /* CARRITO LATERAL & CHATBOT DE VENTAS */
+    .cart-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(28, 25, 23, 0.55);
+      z-index: 1000;
+      display: none;
+    }
+    .cart-backdrop.active { display: block; }
+
+    .cart-drawer {
+      position: fixed;
+      inset-block: 0;
+      inset-inline-end: 0;
+      width: min(100%, 420px);
+      background: var(--surface);
+      z-index: 1001;
+      transform: translateX(100%);
+      transition: transform 280ms ease-in-out;
+      display: flex;
+      flex-direction: column;
+      box-shadow: -6px 0 24px rgba(0,0,0,0.2);
+    }
+    .cart-drawer.active { transform: translateX(0); }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      background-color: var(--primary);
+      color: #ffffff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h2 { color: #ffffff; font-size: 1.2rem; }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      min-width: 44px;
+      min-height: 44px;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .cart-item {
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      padding: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      background: #fafaf9;
+    }
+
+    .qty-btn {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 0.45rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .cart-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* CHATBOT FLOTANTE */
+    .chatbot-launcher {
+      position: fixed;
+      inset-block-end: 1.25rem;
+      inset-inline-end: 1.25rem;
+      z-index: 950;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 2px solid #fde68a;
+      border-radius: 999px;
+      padding: 0.75rem 1.25rem;
+      min-height: 54px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      cursor: pointer;
+    }
+
+    .chatbot-window {
+      position: fixed;
+      inset-block-end: 5.25rem;
+      inset-inline-end: 1.25rem;
+      width: min(calc(100vw - 2rem), 380px);
+      height: min(72vh, 520px);
+      background: var(--surface);
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-lg);
+      z-index: 960;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .chatbot-window.active { display: flex; }
+
+    .chat-header {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.9rem 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-status {
+      font-size: 0.78rem;
+      color: #fde68a;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #4ade80;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      background-color: #fafaf9;
+    }
+
+    .msg {
+      max-width: 85%;
+      padding: 0.75rem 0.95rem;
+      border-radius: 0.85rem;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .msg-bot {
+      align-self: flex-start;
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .msg-user {
+      align-self: flex-end;
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .chat-quick-replies {
+      padding: 0.6rem 0.85rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 0.45rem;
+      overflow-x: auto;
+    }
+
+    .chip-btn {
+      white-space: nowrap;
+      min-height: 44px;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: #fffbeb;
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .chat-form {
+      display: flex;
+      padding: 0.65rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      gap: 0.5rem;
+    }
+
+    .chat-input {
+      flex: 1;
+      min-height: 44px;
+      padding: 0.5rem 0.85rem;
+      border: 1px solid #d6d3d1;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .chat-send {
+      min-width: 44px;
+      min-height: 44px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .site-footer {
+      background-color: #290c0a;
+      color: #d6d3d1;
+      padding-block: 1.75rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand-link" aria-label="La Orureña Inicio">
+        <svg width="36" height="36" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <circle cx="32" cy="32" r="30" fill="#5c1d18"/>
+          <ellipse cx="22" cy="24" rx="11" ry="7" fill="#dc2626"/>
+          <path d="M16 42C24 46 40 46 48 41" stroke="#fef3c7" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M42 16C44 12 50 12 51 16C54 16 55 21 51 23L49 28H41L40 23C37 21 38 16 42 16Z" fill="#ffffff"/>
+        </svg>
+        <span>La Orureña</span>
+      </a>
+
+      <nav aria-label="Secciones de la página">
+        <ul class="nav-links">
+          <li><a href="#video-presentacion">Presentación</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="cart-trigger" id="openCartBtn" aria-label="Abrir lista de cotización">
+        <span>Mi Pedido</span>
+        <span class="cart-badge" id="cartCount" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         PASO 1: TÍTULO PERSUASIVO
+         PASO 2: MULTIMEDIA / VIDEO PERSUASIVO
+         PASO 3: CALL TO ACTION (ENLACE A WHATSAPP)
+         ============================================================ -->
+    <section class="sales-hero" id="video-presentacion">
+      <div class="container">
+        <span class="hero-eyebrow">🌾 Granola Nutritiva • Santa Cruz de la Sierra</span>
+        
+        <!-- 1. TÍTULO PERSUASIVO -->
+        <h1>Granola saludable, energía natural en cada porción de tu día</h1>
+        <p class="lead">
+          Elaborada artesanalmente con <strong>trigo insuflado y avena seleccionada</strong>. El desayuno crocante y nutritivo que transforma la energía de tu familia.
+        </p>
+
+        <!-- 2. MULTIMEDIA / VIDEO PERSUASIVO INTERACTIVO -->
+        <div class="video-stage" role="region" aria-label="Presentación multimedia de Granola La Orureña">
+          <div class="video-screen" id="videoScreen">
+            <span class="video-slide-badge" id="slideBadge">Paso 1 de 4 • Nutrición Real</span>
+            <h2 class="video-slide-title" id="slideTitle">¿Por qué elegir Granola La Orureña?</h2>
+            <p class="video-slide-caption" id="slideCaption">
+              Combinamos trigo insuflado ligero y avena natural bajo estricto control de calidad para darte energía prolongada sin pesadez.
+            </p>
+            <button type="button" class="play-trigger" id="playPauseBtn" aria-label="Reproducir o pausar presentación">
+              <svg id="playIcon" width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <polygon points="6 4 20 12 6 20 6 4"/>
+              </svg>
+            </button>
+          </div>
+
+          <div class="video-controls-bar">
+            <button type="button" class="video-mini-btn" id="miniPlayBtn" aria-label="Alternar reproducción">▶</button>
+            <div class="progress-track" id="progressTrack" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="video-timer" id="videoTimer">00:15 / 01:00</span>
+          </div>
+        </div>
+
+        <!-- 3. CALL TO ACTION (ENLACE A WHATSAPP) -->
+        <div class="cta-banner-primary">
+          <a href="https://wa.me/59162444863?text=Hola%20La%20Orure%C3%B1a%2C%20vi%20su%20p%C3%A1gina%20y%20quiero%20comprar%20o%20consultar%20por%20su%20Granola%20Nutritiva." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <span>¡Comprar / Consultar por WhatsApp!</span>
+          </a>
+          <span class="cta-subnote">Atención directa en Santa Cruz • Ventas al por menor, mayor y eventos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PASO 4: BENEFICIOS DEL PRODUCTO O SERVICIO
+         ============================================================ -->
+    <section id="beneficios">
+      <div class="container">
+        <div class="section-header-center">
+          <h2>Beneficios de nuestra Granola Nutritiva</h2>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">Nutrición que te acompaña siempre, pensada para hogares, deportistas y jóvenes activos.</p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-badge-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Alto Valor Nutricional</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Fuente natural de fibra y carbohidratos saludables gracias al trigo insuflado y la avena.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-badge-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.3"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3>Sabor y Crocancia Única</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Textura irresistible para disfrutar sola, con yogur, leche o frutas en cualquier momento.</p>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-badge-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5c1d18" stroke-width="2.3"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <h3>Energía Prolongada</h3>
+            <p style="color: var(--text-muted); margin-top: 0.5rem;">Rendimiento físico y mental sostenido para deportistas, niños en etapa escolar y trabajo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO DE PRESENTACIONES Y COTIZADOR -->
+    <section id="catalogo" class="catalog-section">
+      <div class="container">
+        <div class="section-header-center">
+          <h2>Presentaciones Disponibles</h2>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">Agrega las presentaciones que necesites a tu lista para cotizar al por menor o mayor.</p>
+        </div>
+
+        <div class="catalog-controls">
+          <div class="filter-group" role="group" aria-label="Filtrar presentaciones">
+            <button type="button" class="filter-btn active" data-filter="todos">Todas</button>
+            <button type="button" class="filter-btn" data-filter="hogar">Bolsas y Hogar</button>
+            <button type="button" class="filter-btn" data-filter="envase">Envases</button>
+            <button type="button" class="filter-btn" data-filter="mayorista">Mayoristas / Eventos</button>
+          </div>
+
+          <div class="search-box">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="search" id="searchInput" class="search-input" placeholder="Buscar presentación..." aria-label="Buscar presentación">
+          </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PASO 5: TESTIMONIOS (PRUEBA SOCIAL DE CLIENTES)
+         ============================================================ -->
+    <section id="testimonios">
+      <div class="container">
+        <div class="section-header-center">
+          <h2>Lo que dicen nuestros clientes en Santa Cruz</h2>
+          <p style="color: var(--text-muted); margin-top: 0.5rem;">Familias, deportistas y comercios que confían en la calidad de La Orureña.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-top">
+              <div class="avatar-circle" aria-hidden="true">CM</div>
+              <div>
+                <strong>Carla Mendoza</strong>
+                <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              </div>
+            </div>
+            <p style="color: var(--text-muted);">
+              “A mis hijos les encanta en el desayuno con yogur. Se nota que el trigo insuflado y la avena son súper frescos y crocantes.”
+            </p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-top">
+              <div class="avatar-circle" aria-hidden="true">JR</div>
+              <div>
+                <strong>Jorge Rojas • Entrenador</strong>
+                <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              </div>
+            </div>
+            <p style="color: var(--text-muted);">
+              “Excelente fuente de energía antes de entrenar. La presentación en envase hermético es muy práctica para llevarla al gimnasio.”
+            </p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-top">
+              <div class="avatar-circle" aria-hidden="true">MP</div>
+              <div>
+                <strong>Minimarket El Trigal</strong>
+                <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              </div>
+            </div>
+            <p style="color: var(--text-muted);">
+              “Pedimos lotes al por mayor para nuestra tienda en Santa Cruz. Tiene muy buena rotación y la atención por WhatsApp es puntual.”
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PASO 6: CALL TO ACTION FINAL (ENLACE A WHATSAPP)
+         ============================================================ -->
+    <section class="final-cta-section">
+      <div class="container">
+        <h2>¡Elige salud, elige La Orureña!</h2>
+        <p>
+          Haz tu pedido hoy mismo para tu hogar, tienda o evento especial. Te respondemos al instante por WhatsApp con precios y envíos en Santa Cruz de la Sierra.
+        </p>
+        <a href="https://wa.me/59162444863?text=Hola%20La%20Orure%C3%B1a%2C%20quiero%20hacer%20un%20pedido%20de%20Granola%20Nutritiva." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+          <span>Pedir Ahora por WhatsApp (+591 62444863)</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>La Orureña — Granola Nutritiva</strong> • Confianza y calidad en cada producto • Santa Cruz de la Sierra, Bolivia</p>
+    </div>
+  </footer>
+
+  <!-- CARRITO / COTIZADOR LATERAL -->
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Lista de pedido a cotizar" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Tu Lista de Pedido</h2>
+      <button type="button" class="close-btn" id="closeCartBtn" aria-label="Cerrar panel">&times;</button>
+    </div>
+    <div class="cart-body" id="cartItemsContainer"></div>
+    <div class="cart-footer">
+      <p style="font-size: 0.86rem; color: var(--text-muted);">
+        Envía tu selección por WhatsApp y te confirmamos precios por menor o mayor y horario de entrega.
+      </p>
+      <button type="button" class="btn btn-whatsapp" id="sendWhatsAppOrderBtn" style="width: 100%; border-radius: 0.65rem;">
+        Enviar Pedido a WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- CHATBOT DE VENTAS FLOTANTE -->
+  <button type="button" class="chatbot-launcher" id="chatLauncher" aria-expanded="false" aria-controls="chatWindow">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+    </svg>
+    <span>Chat de Ventas</span>
+  </button>
+
+  <section class="chatbot-window" id="chatWindow" aria-label="Asistente de ventas La Orureña">
+    <div class="chat-header">
+      <div>
+        <strong style="display: block; font-size: 0.98rem;">Asistente La Orureña</strong>
+        <span class="chat-status"><span class="status-dot"></span> En línea • Ventas y Cotizaciones</span>
+      </div>
+      <button type="button" class="close-btn" id="closeChatBtn" aria-label="Cerrar chat">&times;</button>
+    </div>
+
+    <div class="chat-messages" id="chatMessages" aria-live="polite"></div>
+
+    <div class="chat-quick-replies" id="quickReplies">
+      <button type="button" class="chip-btn" data-q="Presentaciones">Presentaciones</button>
+      <button type="button" class="chip-btn" data-q="Ingredientes">Ingredientes</button>
+      <button type="button" class="chip-btn" data-q="Compra por mayor">Por mayor</button>
+      <button type="button" class="chip-btn" data-q="Envíos Santa Cruz">Envíos</button>
+    </div>
+
+    <form class="chat-form" id="chatForm">
+      <input type="text" id="chatInput" class="chat-input" placeholder="Escribe tu consulta..." aria-label="Mensaje para el asistente" required>
+      <button type="submit" class="chat-send" aria-label="Enviar mensaje">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const WHATSAPP_NUMBER = '59162444863';
+
+      // ========================================================
+      // 1. REPRODUCTOR MULTIMEDIA PERSUASIVO (PASO 2 DE ESTRUCTURA)
+      // ========================================================
+      const SLIDES = [
+        {
+          badge: 'Paso 1 de 4 • Nutrición Real',
+          title: '¿Por qué elegir Granola La Orureña?',
+          caption: 'Combinamos trigo insuflado ligero y avena natural bajo estricto control de calidad para darte energía prolongada sin pesadez.',
+          time: '00:15 / 01:00',
+          progress: 25
+        },
+        {
+          badge: 'Paso 2 de 4 • Energía Diaria',
+          title: 'Ideal para desayunos, deporte y estudio',
+          caption: 'Aporta fibra y energía sostenida para niños, jóvenes, deportistas y familias que buscan una alimentación saludable.',
+          time: '00:30 / 01:00',
+          progress: 50
+        },
+        {
+          badge: 'Paso 3 de 4 • Presentaciones Prácticas',
+          title: 'Disponible en Bolsas y Envases Herméticos',
+          caption: 'Conserva toda la crocancia y el sabor natural en cada porción, listo para combinar con yogur, leche o frutas.',
+          time: '00:45 / 01:00',
+          progress: 75
+        },
+        {
+          badge: 'Paso 4 de 4 • Pedidos Directos',
+          title: 'Entregas en Santa Cruz por menor y mayor',
+          caption: 'Atendemos pedidos familiares, tiendas, supermercados y eventos especiales directamente por WhatsApp.',
+          time: '01:00 / 01:00',
+          progress: 100
+        }
+      ];
+
+      let currentSlide = 0;
+      let isPlaying = false;
+      let slideTimer = null;
+
+      const slideBadge = document.getElementById('slideBadge');
+      const slideTitle = document.getElementById('slideTitle');
+      const slideCaption = document.getElementById('slideCaption');
+      const progressFill = document.getElementById('progressFill');
+      const progressTrack = document.getElementById('progressTrack');
+      const videoTimer = document.getElementById('videoTimer');
+      const playPauseBtn = document.getElementById('playPauseBtn');
+      const miniPlayBtn = document.getElementById('miniPlayBtn');
+
+      function renderSlide(index) {
+        const s = SLIDES[index];
+        slideBadge.textContent = s.badge;
+        slideTitle.textContent = s.title;
+        slideCaption.textContent = s.caption;
+        videoTimer.textContent = s.time;
+        progressFill.style.width = s.progress + '%';
+        progressTrack.setAttribute('aria-valuenow', String(s.progress));
+      }
+
+      function togglePlayback() {
+        isPlaying = !isPlaying;
+        miniPlayBtn.textContent = isPlaying ? '❚❚' : '▶';
+        if (isPlaying) {
+          slideTimer = setInterval(() => {
+            currentSlide = (currentSlide + 1) % SLIDES.length;
+            renderSlide(currentSlide);
+          }, 3200);
+        } else {
+          clearInterval(slideTimer);
+        }
+      }
+
+      playPauseBtn.addEventListener('click', () => {
+        if (!isPlaying) {
+          currentSlide = (currentSlide + 1) % SLIDES.length;
+          renderSlide(currentSlide);
+        }
+        togglePlayback();
+      });
+
+      miniPlayBtn.addEventListener('click', togglePlayback);
+
+      progressTrack.addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % SLIDES.length;
+        renderSlide(currentSlide);
+      });
+
+      // ========================================================
+      // 2. CATÁLOGO Y COTIZADOR WHATSAPP
+      // ========================================================
+      const PRODUCTS = [
+        {
+          id: 'granola-bolsa',
+          name: 'Granola Nutritiva en Bolsa (Trigo Insuflado y Avena)',
+          category: 'hogar',
+          tag: 'Hogar y Desayunos',
+          desc: 'Presentación práctica en bolsa sellada. Crocante, ligera y rica en fibra natural para toda la familia.'
+        },
+        {
+          id: 'granola-envase',
+          name: 'Granola Clásica en Envase Reutilizable',
+          category: 'envase',
+          tag: 'Envase Hermético',
+          desc: 'Mantiene intacta la crocancia del trigo insuflado y la avena. Ideal para la alacena u oficina.'
+        },
+        {
+          id: 'granola-deporte',
+          name: 'Pack Energía Activa & Deportistas',
+          category: 'hogar',
+          tag: 'Alto Rendimiento',
+          desc: 'Energía prolongada de liberación natural para pre y post entrenamiento.'
+        },
+        {
+          id: 'granola-mayorista',
+          name: 'Lote Mayorista (Tiendas y Supermercados)',
+          category: 'mayorista',
+          tag: 'Venta al Por Mayor',
+          desc: 'Precios preferenciales por volumen con abastecimiento continuo en Santa Cruz de la Sierra.'
+        }
+      ];
+
+      let cart = JSON.parse(localStorage.getItem('la_orurena_cart') || '[]');
+      let activeFilter = 'todos';
+      let searchTerm = '';
+
+      const productsGrid = document.getElementById('productsGrid');
+      const searchInput = document.getElementById('searchInput');
+      const cartCount = document.getElementById('cartCount');
+      const cartDrawer = document.getElementById('cartDrawer');
+      const cartBackdrop = document.getElementById('cartBackdrop');
+      const cartItemsContainer = document.getElementById('cartItemsContainer');
+
+      function renderProducts() {
+        productsGrid.textContent = '';
+        const filtered = PRODUCTS.filter(p => {
+          const matchesCat = activeFilter === 'todos' || p.category === activeFilter;
+          const q = searchTerm.toLowerCase().trim();
+          const matchesSearch = !q || p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+          return matchesCat && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+          const empty = document.createElement('p');
+          empty.textContent = 'No se encontraron presentaciones con ese término.';
+          productsGrid.appendChild(empty);
+          return;
+        }
+
+        filtered.forEach(prod => {
+          const card = document.createElement('article');
+          card.className = 'product-card';
+
+          const top = document.createElement('div');
+          const tag = document.createElement('span');
+          tag.className = 'product-tag';
+          tag.textContent = prod.tag;
+
+          const title = document.createElement('h3');
+          title.textContent = prod.name;
+
+          const desc = document.createElement('p');
+          desc.className = 'product-desc';
+          desc.textContent = prod.desc;
+
+          top.appendChild(tag);
+          top.appendChild(title);
+          top.appendChild(desc);
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'btn btn-primary';
+          btn.style.width = '100%';
+          btn.textContent = '+ Agregar a mi Pedido';
+          btn.dataset.id = prod.id;
+
+          card.appendChild(top);
+          card.appendChild(btn);
+          productsGrid.appendChild(card);
+        });
+      }
+
+      function saveCart() {
+        localStorage.setItem('la_orurena_cart', JSON.stringify(cart));
+        updateCartUI();
+      }
+
+      function addToCart(productId) {
+        const product = PRODUCTS.find(p => p.id === productId);
+        if (!product) return;
+        const existing = cart.find(i => i.id === productId);
+        if (existing) existing.qty += 1;
+        else cart.push({ id: product.id, name: product.name, qty: 1 });
+        saveCart();
+      }
+
+      function updateCartUI() {
+        const total = cart.reduce((acc, item) => acc + item.qty, 0);
+        cartCount.textContent = String(total);
+        cartItemsContainer.textContent = '';
+
+        if (cart.length === 0) {
+          const msg = document.createElement('p');
+          msg.style.color = 'var(--text-muted)';
+          msg.textContent = 'Tu lista está vacía. Selecciona presentaciones del catálogo para pedir por WhatsApp.';
+          cartItemsContainer.appendChild(msg);
+          return;
+        }
+
+        cart.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'cart-item';
+
+          const info = document.createElement('div');
+          const title = document.createElement('strong');
+          title.style.display = 'block';
+          title.style.fontSize = '0.94rem';
+          title.textContent = item.name;
+
+          const qtyLabel = document.createElement('span');
+          qtyLabel.style.fontSize = '0.82rem';
+          qtyLabel.style.color = 'var(--text-muted)';
+          qtyLabel.textContent = 'Cantidad: ' + item.qty;
+
+          info.appendChild(title);
+          info.appendChild(qtyLabel);
+
+          const controls = document.createElement('div');
+          controls.style.display = 'inline-flex';
+          controls.style.gap = '0.4rem';
+
+          const dec = document.createElement('button');
+          dec.type = 'button';
+          dec.className = 'qty-btn';
+          dec.textContent = '−';
+          dec.dataset.action = 'dec';
+          dec.dataset.id = item.id;
+
+          const inc = document.createElement('button');
+          inc.type = 'button';
+          inc.className = 'qty-btn';
+          inc.textContent = '+';
+          inc.dataset.action = 'inc';
+          inc.dataset.id = item.id;
+
+          controls.appendChild(dec);
+          controls.appendChild(inc);
+          row.appendChild(info);
+          row.appendChild(controls);
+          cartItemsContainer.appendChild(row);
+        });
+      }
+
+      function toggleCart(open) {
+        cartDrawer.classList.toggle('active', open);
+        cartBackdrop.classList.toggle('active', open);
+        cartDrawer.setAttribute('aria-hidden', String(!open));
+      }
+
+      productsGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-id]');
+        if (btn) {
+          addToCart(btn.dataset.id);
+          toggleCart(true);
+        }
+      });
+
+      cartItemsContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('button[data-action]');
+        if (!btn) return;
+        const idx = cart.findIndex(i => i.id === btn.dataset.id);
+        if (idx === -1) return;
+        if (btn.dataset.action === 'inc') cart[idx].qty += 1;
+        else {
+          cart[idx].qty -= 1;
+          if (cart[idx].qty <= 0) cart.splice(idx, 1);
+        }
+        saveCart();
+      });
+
+      document.querySelector('.filter-group').addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.dataset.filter;
+        renderProducts();
+      });
+
+      searchInput.addEventListener('input', (e) => {
+        searchTerm = e.target.value;
+        renderProducts();
+      });
+
+      document.getElementById('openCartBtn').addEventListener('click', () => toggleCart(true));
+      document.getElementById('closeCartBtn').addEventListener('click', () => toggleCart(false));
+      cartBackdrop.addEventListener('click', () => toggleCart(false));
+
+      document.getElementById('sendWhatsAppOrderBtn').addEventListener('click', () => {
+        let message = 'Hola *La Orureña*, quiero realizar el siguiente pedido/cotización:\n\n';
+        if (cart.length === 0) {
+          message = 'Hola *La Orureña*, quisiera información y precios de su Granola Nutritiva.';
+        } else {
+          cart.forEach((item, idx) => {
+            message += `${idx + 1}. ${item.name} — Cantidad: ${item.qty}\n`;
+          });
+          message += '\nPor favor confírmenme precios y entrega en Santa Cruz de la Sierra.';
+        }
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
+      });
+
+      // ========================================================
+      // 3. CHATBOT DE VENTAS FLOTANTE
+      // ========================================================
+      const chatLauncher = document.getElementById('chatLauncher');
+      const chatWindow = document.getElementById('chatWindow');
+      const closeChatBtn = document.getElementById('closeChatBtn');
+      const chatMessages = document.getElementById('chatMessages');
+      const chatForm = document.getElementById('chatForm');
+      const chatInput = document.getElementById('chatInput');
+      const quickReplies = document.getElementById('quickReplies');
+
+      function appendMessage(text, sender, includeWhatsAppBtn = false) {
+        const bubble = document.createElement('div');
+        bubble.className = 'msg ' + (sender === 'bot' ? 'msg-bot' : 'msg-user');
+        bubble.textContent = text;
+
+        if (includeWhatsAppBtn) {
+          const waLink = document.createElement('a');
+          waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola La Orureña, vengo del chat de ventas de su web y quiero hacer un pedido.')}`;
+          waLink.target = '_blank';
+          waLink.rel = 'noopener noreferrer';
+          waLink.className = 'btn btn-whatsapp';
+          waLink.style.marginTop = '0.6rem';
+          waLink.style.width = '100%';
+          waLink.style.minHeight = '44px';
+          waLink.style.fontSize = '0.85rem';
+          waLink.textContent = 'Continuar en WhatsApp (62444863)';
+          bubble.appendChild(document.createElement('br'));
+          bubble.appendChild(waLink);
+        }
+
+        chatMessages.appendChild(bubble);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      function getBotResponse(userText) {
+        const q = userText.toLowerCase();
+        if (q.includes('ingredient') || q.includes('avena') || q.includes('trigo') || q.includes('nutri')) {
+          return 'Nuestra granola es 100% natural, elaborada a base de trigo insuflado y avena seleccionada. Aporta alto valor nutricional y energía prolongada.';
+        }
+        if (q.includes('presentacion') || q.includes('bolsa') || q.includes('envase')) {
+          return 'Ofrecemos bolsas selladas y envases reutilizables, además de lotes especiales para familias, deportistas, tiendas y eventos.';
+        }
+        if (q.includes('mayor') || q.includes('tienda') || q.includes('supermercado') || q.includes('evento')) {
+          return '¡Claro! Abastecemos tiendas, supermercados y eventos con precios especiales al por mayor. Haz clic abajo para cotizar tu pedido:';
+        }
+        if (q.includes('envio') || q.includes('santa cruz') || q.includes('ubicacion') || q.includes('entrega')) {
+          return 'Estamos en Santa Cruz de la Sierra y coordinamos entregas directas por WhatsApp al 62444863.';
+        }
+        if (q.includes('precio') || q.includes('costo') || q.includes('comprar') || q.includes('pedir')) {
+          return 'Contamos con precios por menor y por mayor. Puedes elegir en el catálogo o escribirnos directo a WhatsApp aquí:';
+        }
+        return '¡Hola! En La Orureña te ayudamos con pedidos de Granola Nutritiva (trigo insuflado y avena) para tu hogar o negocio.';
+      }
+
+      function handleUserQuery(text) {
+        if (!text.trim()) return;
+        appendMessage(text, 'user');
+        const lower = text.toLowerCase();
+        const needsCTA = lower.includes('mayor') || lower.includes('precio') || lower.includes('comprar') || lower.includes('pedir') || lower.includes('cotiz');
+        setTimeout(() => {
+          appendMessage(getBotResponse(text), 'bot', needsCTA);
+        }, 280);
+      }
+
+      chatLauncher.addEventListener('click', () => {
+        const isOpen = chatWindow.classList.toggle('active');
+        chatLauncher.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen && chatMessages.children.length === 0) {
+          appendMessage('¡Bienvenido a La Orureña! 👋 ¿Te gustaría información sobre nuestras presentaciones, ingredientes o precios por mayor?', 'bot');
+        }
+      });
+
+      closeChatBtn.addEventListener('click', () => {
+        chatWindow.classList.remove('active');
+        chatLauncher.setAttribute('aria-expanded', 'false');
+      });
+
+      quickReplies.addEventListener('click', (e) => {
+        const chip = e.target.closest('.chip-btn');
+        if (chip) handleUserQuery(chip.dataset.q);
+      });
+
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = chatInput.value;
+        chatInput.value = '';
+        handleUserQuery(val);
+      });
+
+      renderProducts();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>
